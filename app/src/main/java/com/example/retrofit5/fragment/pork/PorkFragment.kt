@@ -1,4 +1,4 @@
-package com.example.retrofit5.viewmodel.seafood
+package com.example.retrofit5.fragment.pork
 
 import android.os.Bundle
 import android.util.Log
@@ -13,11 +13,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.retrofit5.R
 import com.example.retrofit5.adapter.MealAdapter
 import com.example.retrofit5.viewmodel.MealViewModel
-import kotlinx.android.synthetic.main.fragment_seafood.*
+import kotlinx.android.synthetic.main.fragment_beef.*
+import kotlinx.android.synthetic.main.fragment_pork.*
 
-class SeaFoodFragment : Fragment() {
-    private lateinit var mealListAdapter: MealAdapter
-    private lateinit var seafoodViewModel: MealViewModel
+class PorkFragment : Fragment() {
+    private lateinit var porkListAdapter: MealAdapter
+    private lateinit var porkViewModel: MealViewModel
     private lateinit var viewManager: RecyclerView.LayoutManager
 
     override fun onCreateView(
@@ -25,16 +26,16 @@ class SeaFoodFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_seafood, container, false)
+        val root = inflater.inflate(R.layout.fragment_pork, container, false)
         return root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewManager = GridLayoutManager(activity,2)
-        mealListAdapter = MealAdapter()
-        recyclerSeaFood.apply {
-            adapter = mealListAdapter
+        porkListAdapter = MealAdapter()
+        recyclerPork.apply {
+            adapter = porkListAdapter
             layoutManager = viewManager
             observeViewModel()
         }
@@ -42,17 +43,17 @@ class SeaFoodFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        seafoodViewModel.loadFood("seafood")
+        porkViewModel.loadFood("pork")
+
     }
 
-
     private fun observeViewModel() {
-        seafoodViewModel = ViewModelProvider(this).get(MealViewModel::class.java)
+        porkViewModel = ViewModelProvider(this).get(MealViewModel::class.java)
 
-        seafoodViewModel.getMealList().observe(
+        porkViewModel.getMealList().observe(
             viewLifecycleOwner, Observer {
-                mealListAdapter.updateMealList((it))
-                Log.d("Seafood UpdateList>>>",it.toString())
+                porkListAdapter.updateMealList((it))
+                Log.d("Pork UpdateList>>>",it.toString())
             })
 
     }

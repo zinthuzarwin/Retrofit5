@@ -1,4 +1,4 @@
-package com.example.retrofit5.viewmodel.beef
+package com.example.retrofit5.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -11,7 +11,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class BeefViewModel : ViewModel() {
+class MealViewModel : ViewModel() {
 
     var mealList: MutableLiveData<List<Meal>> = MutableLiveData()
     var mealLoadError: MutableLiveData<Boolean> = MutableLiveData()
@@ -23,9 +23,9 @@ class BeefViewModel : ViewModel() {
 
     private val mealApi: MealApi = MealApi()
 
-    fun loadBeef(category: String) {
+    fun loadFood(category: String) {
         loading.value = true
-        val apiCall = mealApi.getBeef(category)
+        val apiCall = mealApi.getFood(category)
 
         apiCall.enqueue(object : Callback<Food> {
             override fun onFailure(call: Call<Food>, t: Throwable) {

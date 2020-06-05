@@ -22,4 +22,18 @@
         android:name="com.example.retrofit5.viewmodel.seafood.SeaFoodFragment"
         android:label="@string/seafood"
         tools:layout="@layout/fragment_seafood" />
+
+    <fragment
+        android:id="@+id/nav_pork"
+        android:name="com.example.retrofit5.fragment.pork.PorkFragment"
+        android:label="Pork"
+        tools:layout="@layout/fragment_pork" />
+
+    <fragment
+        android:id="@+id/nav_goat"
+        android:name="com.example.retrofit5.fragment.goat.GoatFragment"
+        android:label="Goat"
+        tools:layout="@layout/fragment_goat" />
+
+
 </navigation>

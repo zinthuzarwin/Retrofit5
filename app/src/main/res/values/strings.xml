@@ -1,8 +1,11 @@
 <resources>
-    <string name="app_name">Meal Filter</string>
+    <string name="app_name">Retrofit5</string>
     <string name="nav_header_desc">Navigation header</string>
 
     <string name="chicken">Chicken</string>
     <string name="beef">Beef</string>
     <string name="seafood">SeaFood</string>
+    <string name="pork">Pork</string>
+    <string name="goat">Goat</string>
+
 </resources>

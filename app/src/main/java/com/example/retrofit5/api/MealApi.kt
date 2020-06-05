@@ -23,15 +23,8 @@ class MealApi {
 
     }
 
-    fun getBeef(category: String): Call<Food> {
-        return mealInterface.getBeef(category)
+    fun getFood(category: String): Call<Food> {
+        return mealInterface.getFood(category)
     }
 
-    fun getChicken(category: String): Call<Food> {
-        return mealInterface.getChicken(category)
-    }
-
-    fun getSeafood(category: String): Call<Food> {
-        return mealInterface.getSeaFood(category)
-    }
 }

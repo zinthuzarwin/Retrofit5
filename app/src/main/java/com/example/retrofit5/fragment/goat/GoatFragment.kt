@@ -1,4 +1,4 @@
-package com.example.retrofit5.viewmodel.seafood
+package com.example.retrofit5.fragment.goat
 
 import android.os.Bundle
 import android.util.Log
@@ -13,11 +13,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.retrofit5.R
 import com.example.retrofit5.adapter.MealAdapter
 import com.example.retrofit5.viewmodel.MealViewModel
-import kotlinx.android.synthetic.main.fragment_seafood.*
+import kotlinx.android.synthetic.main.fragment_goat.*
 
-class SeaFoodFragment : Fragment() {
-    private lateinit var mealListAdapter: MealAdapter
-    private lateinit var seafoodViewModel: MealViewModel
+class GoatFragment : Fragment() {
+    private lateinit var goatListAdapter: MealAdapter
+    private lateinit var goatViewModel: MealViewModel
     private lateinit var viewManager: RecyclerView.LayoutManager
 
     override fun onCreateView(
@@ -25,16 +25,16 @@ class SeaFoodFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_seafood, container, false)
+        val root = inflater.inflate(R.layout.fragment_goat, container, false)
         return root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewManager = GridLayoutManager(activity,2)
-        mealListAdapter = MealAdapter()
-        recyclerSeaFood.apply {
-            adapter = mealListAdapter
+        goatListAdapter = MealAdapter()
+        recyclerGoat.apply {
+            adapter = goatListAdapter
             layoutManager = viewManager
             observeViewModel()
         }
@@ -42,17 +42,16 @@ class SeaFoodFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        seafoodViewModel.loadFood("seafood")
+        goatViewModel.loadFood("goat")
     }
 
-
     private fun observeViewModel() {
-        seafoodViewModel = ViewModelProvider(this).get(MealViewModel::class.java)
+        goatViewModel = ViewModelProvider(this).get(MealViewModel::class.java)
 
-        seafoodViewModel.getMealList().observe(
+        goatViewModel.getMealList().observe(
             viewLifecycleOwner, Observer {
-                mealListAdapter.updateMealList((it))
-                Log.d("Seafood UpdateList>>>",it.toString())
+                goatListAdapter.updateMealList(it)
+                Log.d("Goat UpdateList>>>",it.toString())
             })
 
     }

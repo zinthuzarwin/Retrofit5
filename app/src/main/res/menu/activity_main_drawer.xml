@@ -13,5 +13,11 @@
         <item
             android:id="@+id/nav_seafood"
             android:title="@string/seafood" />
+        <item
+            android:id="@+id/nav_pork"
+            android:title="Pork" />
+        <item
+            android:id="@+id/nav_goat"
+            android:title="Goat" />
     </group>
 </menu>

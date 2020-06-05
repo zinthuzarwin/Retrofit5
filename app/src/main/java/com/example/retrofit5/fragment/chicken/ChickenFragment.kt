@@ -12,12 +12,13 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.retrofit5.R
 import com.example.retrofit5.adapter.MealAdapter
+import com.example.retrofit5.viewmodel.MealViewModel
 import kotlinx.android.synthetic.main.fragment_chicken.*
 
 class ChickenFragment : Fragment() {
 
     private lateinit var chickenListAdapter: MealAdapter
-    private lateinit var chickenViewModel: ChickenViewModel
+    private lateinit var chickenViewModel: MealViewModel
     private lateinit var viewManager: RecyclerView.LayoutManager
 
     override fun onCreateView(
@@ -43,12 +44,12 @@ class ChickenFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        chickenViewModel.loadChicken("Chicken")
+        chickenViewModel.loadFood("chicken")
     }
 
 
     private fun observeViewModel() {
-        chickenViewModel = ViewModelProvider(this).get(ChickenViewModel::class.java)
+        chickenViewModel = ViewModelProvider(this).get(MealViewModel::class.java)
 
         chickenViewModel.getMealList().observe(
             viewLifecycleOwner, Observer {
